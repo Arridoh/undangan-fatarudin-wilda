@@ -210,7 +210,7 @@
             event.preventDefault();
             const name = document.getElementById('rsvp-name').value;
             const status = document.getElementById('rsvp-status').value;
-            const phoneNumber = "085341838721"; 
+            const phoneNumber = "6285341838721"; 
             
             const message = `Halo, saya mengonfirmasi undangan pernikahan.%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Konfirmasi:* ${encodeURIComponent(status)}`;
             window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
