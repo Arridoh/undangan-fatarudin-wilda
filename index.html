@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan | Fatarudin & Wilda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #FDFBF7; color: #3A3A3A; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .cover-bg {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-hidden" id="body-lock">
+
+    <div id="cover-screen" class="cover-bg fixed inset-0 z-50 flex flex-col justify-center items-center text-center px-4 transition-all duration-1000">
+        <p class="text-xs md:text-sm tracking-widest uppercase text-gray-300 mb-6">Undangan Pernikahan</p>
+        
+        <h2 class="font-serif text-5xl md:text-7xl text-white mb-2 tracking-wide">FATARUDIN FUAD</h2>
+        <span class="font-serif text-4xl md:text-6xl text-amber-200/80 my-2 italic">&</span>
+        <h2 class="font-serif text-5xl md:text-7xl text-white mb-10 tracking-wide">WILDA ILHAM</h2>
+        
+        <div class="mb-10 p-6 bg-white/95 backdrop-blur-sm border border-gray-200 rounded-xl max-w-sm w-full shadow-xl">
+            <p class="text-[10px] md:text-xs text-gray-500 uppercase tracking-widest mb-3">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <h3 id="guest-name" class="font-serif text-xl md:text-2xl font-bold text-slate-800">Tamu Undangan</h3>
+        </div>
+
+        <button onclick="openInvitation()" class="px-10 py-3.5 bg-slate-800 text-white text-sm md:text-base rounded-full shadow-lg hover:bg-slate-700 transition tracking-wider flex items-center gap-2 border border-slate-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M14 21v-8a2 2 0 00-2-2H8a2 2 0 00-2 2v8"/></svg>
+            Buka Undangan
+        </button>
+    </div>
+
+    <audio id="wedding-music" loop>
+        <source src="Relaxing Healing Music.mp3" type="audio/mp3">
+    </audio>
+
+    <button onclick="toggleMusic()" id="music-btn" class="hidden fixed bottom-6 right-6 z-40 bg-white/90 backdrop-blur-sm p-3.5 rounded-full shadow-xl border border-gray-200 text-slate-700 hover:bg-slate-100 transition">
+        <svg id="music-icon" class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+    </button>
+
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-12 relative overflow-hidden">
+        <svg class="absolute top-0 left-0 w-32 h-32 md:w-48 md:h-48 text-amber-900/10 transform -translate-x-1/4 -translate-y-1/4" viewBox="0 0 100 100" fill="currentColor"><path d="M50 0C50 27.6 27.6 50 0 50C27.6 50 50 72.4 50 100C50 72.4 72.4 50 100 50C72.4 50 50 27.6 50 0Z"/></svg>
+
+        <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-[6px] border-white shadow-2xl mb-8 z-10">
+            <img src="FotoPengantin.jpg" alt="Fatarudin and Wilda" class="w-full h-full object-cover">
+        </div>
+        
+        <p class="text-[10px] md:text-xs tracking-widest uppercase text-slate-500 mb-3 z-10">Maha Suci Allah yang telah mempersatukan</p>
+        <h1 class="font-serif text-5xl md:text-7xl text-slate-800 mb-4 z-10">Fatarudin & Wilda</h1>
+        <p class="text-sm md:text-base font-light text-slate-600 mb-10 tracking-wide z-10">Senin, 29 Juni 2026</p>
+        
+        <a href="#event" class="z-10 px-8 py-3 bg-transparent border border-slate-400 text-slate-700 text-xs rounded-full uppercase tracking-widest hover:bg-slate-800 hover:text-white hover:border-slate-800 transition duration-300">
+            Detail Acara
+        </a>
+
+        <svg class="absolute bottom-0 right-0 w-32 h-32 md:w-48 md:h-48 text-amber-900/10 transform translate-x-1/4 translate-y-1/4" viewBox="0 0 100 100" fill="currentColor"><path d="M50 0C50 27.6 27.6 50 0 50C27.6 50 50 72.4 50 100C50 72.4 72.4 50 100 50C72.4 50 50 27.6 50 0Z"/></svg>
+    </header>
+
+    <section class="pt-20 pb-10 px-6 max-w-4xl mx-auto text-center relative">
+        <p class="font-serif text-lg md:text-2xl text-slate-700 italic leading-loose">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+        </p>
+        <p class="mt-6 font-semibold text-slate-500 tracking-widest text-sm">QS. Ar-Rum: 21</p>
+    </section>
+
+    <section class="pb-20 pt-10 px-4">
+        <div class="max-w-3xl mx-auto text-center bg-white/50 backdrop-blur-sm border border-slate-200/50 py-10 rounded-3xl shadow-sm">
+            <h2 class="font-serif text-xl md:text-2xl text-slate-600 mb-8 tracking-widest uppercase text-xs">Menuju Hari Bahagia</h2>
+            <div id="countdown" class="flex justify-center gap-6 md:gap-12">
+                <div class="flex flex-col items-center">
+                    <span id="days" class="text-4xl md:text-5xl font-serif text-slate-800">00</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 mt-2">Hari</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="hours" class="text-4xl md:text-5xl font-serif text-slate-800">00</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 mt-2">Jam</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="minutes" class="text-4xl md:text-5xl font-serif text-slate-800">00</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 mt-2">Menit</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span id="seconds" class="text-4xl md:text-5xl font-serif text-slate-800">00</span>
+                    <span class="text-[10px] md:text-xs uppercase tracking-widest text-slate-500 mt-2">Detik</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="event" class="py-20 px-6 max-w-5xl mx-auto border-t border-slate-200/50">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="p-10 border border-slate-200/60 rounded-3xl bg-white shadow-lg shadow-slate-200/20 text-center relative overflow-hidden group">
+                <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-50 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-700"></div>
+                
+                <h3 class="font-serif text-3xl text-slate-800 mb-4 relative z-10">Akad Nikah</h3>
+                <p class="text-slate-600 text-sm mb-1 relative z-10"><strong>Minggu, 20 Desember 2026</strong></p>
+                <p class="text-slate-500 text-xs mb-6 relative z-10">Pukul 08:00 WIT - Selesai</p>
+                <p class="text-sm text-slate-600 leading-relaxed mb-8 relative z-10">
+                    <strong>Masjid Raya Al-Munawwar</strong><br>
+                    Jl. Pahlawan Revolusi, Kota Ternate
+                </p>
+                <a href="https://maps.google.com/?q=Masjid+Raya+Al-Munawwar+Ternate" target="_blank" rel="noopener" class="relative z-10 inline-flex items-center gap-2 bg-slate-800 text-white text-xs px-6 py-3 rounded-full hover:bg-slate-700 transition shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Buka Google Maps
+                </a>
+            </div>
+            
+            <div class="p-10 border border-slate-200/60 rounded-3xl bg-white shadow-lg shadow-slate-200/20 text-center relative overflow-hidden group">
+                <div class="absolute -left-6 -bottom-6 w-24 h-24 bg-amber-50 rounded-full opacity-10 group-hover:scale-150 transition-transform duration-700"></div>
+                
+                <h3 class="font-serif text-3xl text-slate-800 mb-4 relative z-10">Resepsi</h3>
+                <p class="text-slate-600 text-sm mb-1 relative z-10"><strong>Minggu, 20 Desember 2026</strong></p>
+                <p class="text-slate-500 text-xs mb-6 relative z-10">Pukul 11:00 WIT - Selesai</p>
+                <p class="text-sm text-slate-600 leading-relaxed mb-8 relative z-10">
+                    <strong>Grand Fatma Hotel</strong><br>
+                    Jl. Raya Tarau, Kota Ternate
+                </p>
+                <a href="https://maps.google.com/?q=Grand+Fatma+Hotel+Ternate" target="_blank" rel="noopener" class="relative z-10 inline-flex items-center gap-2 bg-slate-800 text-white text-xs px-6 py-3 rounded-full hover:bg-slate-700 transition shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Buka Google Maps
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-900 text-white py-24 px-6 relative overflow-hidden">
+        <svg class="absolute top-0 right-0 w-64 h-64 text-slate-800 transform translate-x-1/3 -translate-y-1/3" viewBox="0 0 100 100" fill="currentColor"><path d="M50 0C50 27.6 27.6 50 0 50C27.6 50 50 72.4 50 100C50 72.4 72.4 50 100 50C72.4 50 50 27.6 50 0Z"/></svg>
+
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
+            <div>
+                <h2 class="font-serif text-3xl mb-4 text-amber-50">Konfirmasi Kehadiran</h2>
+                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Silakan isi form di bawah ini, konfirmasi akan dikirimkan langsung melalui pesan WhatsApp.</p>
+                <form onsubmit="sendWhatsAppRSVP(event)" class="space-y-5">
+                    <div>
+                        <input type="text" id="rsvp-name" placeholder="Nama Lengkap" class="w-full px-5 py-3.5 rounded-xl bg-slate-800/50 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-200/50 transition placeholder-slate-500" required>
+                    </div>
+                    <div>
+                        <select id="rsvp-status" class="w-full px-5 py-3.5 rounded-xl bg-slate-800/50 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-200/50 transition">
+                            <option value="Hadir, Saya akan datang">Hadir</option>
+                            <option value="Maaf, saya tidak bisa hadir">Tidak Hadir</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-50 text-slate-900 font-semibold py-3.5 rounded-xl text-sm hover:bg-white transition mt-2 shadow-lg">
+                        Kirim via WhatsApp
+                    </button>
+                </form>
+            </div>
+
+            <div>
+                <h2 class="font-serif text-3xl mb-4 text-amber-50">Kado Digital</h2>
+                <p class="text-slate-400 text-sm mb-8 leading-relaxed">Doa restu Anda adalah karunia terindah, namun jika Anda ingin memberikan tanda kasih, Anda dapat menyalurkannya melalui:</p>
+                
+                <div class="bg-slate-800/50 p-6 border border-slate-700 rounded-2xl backdrop-blur-sm">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <p class="text-[10px] font-semibold text-amber-200 uppercase tracking-widest">Bank BNI</p>
+                            <p id="account-num" class="text-lg font-medium tracking-wider text-white mt-1">no. rek</p>
+                            <p class="text-xs text-slate-400 mt-1">a.n Fatarudin Fuad</p>
+                        </div>
+                        <button onclick="copyToClipboard('account-num', this)" class="text-xs bg-slate-700 text-white px-4 py-2 rounded-lg hover:bg-slate-600 transition border border-slate-600">
+                            Salin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-slate-500 text-xs bg-slate-950">
+        <p>© 2026 Fatarudin & Wilda. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get('to');
+        if (guest) {
+            document.getElementById('guest-name').innerText = guest;
+            document.getElementById('rsvp-name').value = guest;
+        }
+
+        const audio = document.getElementById('wedding-music');
+        
+        function openInvitation() {
+            document.getElementById('cover-screen').classList.add('opacity-0', '-translate-y-full', 'pointer-events-none');
+            document.getElementById('body-lock').classList.remove('overflow-hidden');
+            document.getElementById('music-btn').classList.remove('hidden');
+            audio.play().catch(error => console.log("Menunggu interaksi pengguna untuk memutar audio."));
+        }
+
+        function toggleMusic() {
+            const icon = document.getElementById('music-icon');
+            if (audio.paused) {
+                audio.play();
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>';
+            } else {
+                audio.pause();
+                icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />';
+            }
+        }
+
+        function sendWhatsAppRSVP(event) {
+            event.preventDefault();
+            const name = document.getElementById('rsvp-name').value;
+            const status = document.getElementById('rsvp-status').value;
+            const phoneNumber = "085341838721"; 
+            
+            const message = `Halo, saya mengonfirmasi undangan pernikahan.%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*Konfirmasi:* ${encodeURIComponent(status)}`;
+            window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, '_blank');
+        }
+
+        function copyToClipboard(elementId, button) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "Tersalin!";
+                button.classList.replace('bg-slate-700', 'bg-emerald-600');
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.classList.replace('bg-emerald-600', 'bg-slate-700');
+                }, 2000);
+            });
+        }
+
+        // LOGIKA HITUNG MUNDUR (COUNTDOWN)
+        const countDownDate = new Date("Jun 29, 2026 08:00:00").getTime();
+        
+        const countdownFunc = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            // Jika waktu sudah habis (distance < 0)
+            if (distance < 0) {
+                clearInterval(countdownFunc);
+                document.getElementById("countdown").innerHTML = "<div class='text-xl font-serif text-slate-800 font-bold'>Acara Sedang / Telah Berlangsung</div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

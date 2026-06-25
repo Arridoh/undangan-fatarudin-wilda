@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Link Generator Undangan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 p-8 font-sans">
+    <div class="max-w-xl mx-auto bg-white p-6 rounded-2xl shadow-md">
+        <h2 class="text-xl font-bold mb-4 text-slate-800">Undangan Link Generator</h2>
+        
+        <div class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Nama Tamu</label>
+                <input type="text" id="input-name" placeholder="Contoh: Bapak Ahmad & Keluarga" class="w-full p-3 border rounded-xl focus:outline-slate-800">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-600 mb-1">Nomor WA Tamu (Awali 62)</label>
+                <input type="text" id="input-phone" placeholder="Contoh: 628123456789" class="w-full p-3 border rounded-xl focus:outline-slate-800">
+            </div>
+            <button onclick="generateLink()" class="w-full bg-slate-800 text-white p-3 rounded-xl font-semibold hover:bg-slate-700 transition">
+                Generate & Kirim WA
+            </button>
+        </div>
+
+        <div class="mt-6 pt-6 border-t hidden" id="result-box">
+            <p class="text-sm font-medium text-slate-600 mb-1">Link Undangan Tamu:</p>
+            <textarea id="result-url" class="w-full p-3 bg-slate-100 rounded-xl text-sm font-mono h-20 border" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function generateLink() {
+            const name = document.getElementById('input-name').value;
+            const phone = document.getElementById('input-phone').value;
+            
+            if(!name) return alert('Nama tamu wajib diisi');
+
+            // Mengambil base URL dari lokasi file ini berada saat dideploy
+            const baseUrl = window.location.href.replace('generator.html', '');
+            const guestUrl = `${baseUrl}?to=${encodeURIComponent(name)}`;
+            
+            document.getElementById('result-url').value = guestUrl;
+            document.getElementById('result-box').classList.remove('hidden');
+
+            if(phone) {
+                const waMessage = `Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i *${name}* untuk menghadiri acara pernikahan kami. Detail undangan dapat dilihat pada tautan berikut:\n\n${guestUrl}`;
+                window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(waMessage)}`, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
